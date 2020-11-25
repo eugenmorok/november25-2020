@@ -1,0 +1,4 @@
+страдухин евгений день 1:
+GetArraySizeFromUser yp.1,
+OutputOfTheArrayInIntegerWithoutIndexes yp.3,
+MyEasyGeneratorOfPosForCourse1 (свой модуль для выполнения задания)
