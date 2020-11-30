@@ -2,7 +2,7 @@ public class AlignedOutputArrayInInt {
 
     public static void outputArrayInInteger(int numberOfElementsInLine, String nameOfTheOutputArray) {
 
-        int[] sArray = MyEasyGeneratorOfPosForCourse1.getMineGenArray(10);
+        int[] sArray = MyEasyGeneratorOfPosForCourse1.getMineGenArray(100);
 
         System.out.println(nameOfTheOutputArray);
 
@@ -11,7 +11,7 @@ public class AlignedOutputArrayInInt {
 
         for (int i = 1; i < sArray.length + 1; i++) {
 
-            oneCell = "[" + (i - 1) + "] = " + sArray[i-1];
+            oneCell = "[" + (i - 1) + "] = " + sArray[i - 1];
 
             System.out.print(oneCell);
 

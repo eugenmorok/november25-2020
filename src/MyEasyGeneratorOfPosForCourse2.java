@@ -1,4 +1,4 @@
-public class MyEasyGeneratorOfPosForCourse1 {
+public class MyEasyGeneratorOfPosForCourse2 {
 
     public static int[] getMineGenArray(int enteredArrLen) {
 
