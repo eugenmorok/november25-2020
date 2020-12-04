@@ -1,4 +1,4 @@
-public class jkTestArrayAnalize01 {
+public class jkTestArrayAnalyzer01 {
 
 
     public static void main(String args[]) {

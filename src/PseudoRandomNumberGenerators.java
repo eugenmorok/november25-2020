@@ -2,19 +2,19 @@ public class PseudoRandomNumberGenerators {
 
     //----------------------------------------------------------------------------- time
 
-    static void generatorOfPseudorandomNumbersTime(long[] inputArray) {
+    static void generatorOfPseudorandomNumbersTime(int[] inputArray) {
 
         int inputArrayLen = inputArray.length;
         int i = 0;
 
         while (i < inputArrayLen) {
 
-            inputArray[i] = System.currentTimeMillis() % 256;
+            inputArray[i] = (int)(System.currentTimeMillis() % 256);
             i++;
 
         }
 
-        System.out.println("The array is full, the end of the timegen method");
+        //System.out.println("The array is full, the end of the timegen method");
 
     }
 
@@ -38,7 +38,7 @@ public class PseudoRandomNumberGenerators {
             i++;
         }
 
-        System.out.println("The array is full, the end of the line method");
+        //System.out.println("The array is full, the end of the line method");
     }
 
     //----------------------------------------------------------------------------- /linear
@@ -61,7 +61,7 @@ public class PseudoRandomNumberGenerators {
             i++;
         }
 
-        System.out.println("The array is full, the end of the quad method");
+        //System.out.println("The array is full, the end of the quad method");
     }
 
     //----------------------------------------------------------------------------- /quadratic
@@ -115,7 +115,7 @@ public class PseudoRandomNumberGenerators {
 
             } else {
 
-                element = (byte) ((inputArray[i - 1] * inputArray[i - 1] * k * 3 + b / 22) / 66) & 15;
+                element = (byte) ((inputArray[i - 1] * inputArray[i - 1] * k * 3 + b / 22) / 66)  & 15;
                 memo = (byte) (((element ^ (element >> 31)) - (element >> 31) * 2 / 3) % 1000) & 15;
                 if (i == i % (v % 100) / 2) inputArray[i] = 0;
                 else inputArray[i] = (byte) memo & 15;
@@ -128,7 +128,7 @@ public class PseudoRandomNumberGenerators {
 
         }
 
-        System.out.println("The array is full, the end of the bits method");
+        //System.out.println("The array is full, the end of the bits method");
 
     }
 
@@ -139,11 +139,11 @@ public class PseudoRandomNumberGenerators {
     //----------------------------------------------------------------------------- check
 
     public static void main(String[] args) {
-        long[] testArr = new long[28];
+        int[] testArr = new int[28];
         int[] testArr2 = new int[100];
 
         generatorOfPseudorandomNumbersTime(testArr);
-        jkPrintArray.jkPrintArrOneLong(testArr);
+        jkPrintArray.jkPrintArrOneInt(testArr);
         System.out.println("");
 
         linearGeneratorOfPseudorandomNumbers(testArr2, 7, 13);
@@ -154,7 +154,7 @@ public class PseudoRandomNumberGenerators {
         jkPrintArray.jkPrintArrOneInt(testArr2);
         System.out.println("");
 
-        biteGeneratorOfPseudorandomNumbersByStradukhinEI(testArr2, 0);
+        biteGeneratorOfPseudorandomNumbersByStradukhinEI(testArr2, 42554);
         jkPrintArray.jkPrintArrOneInt(testArr2);
         System.out.println("");
 
