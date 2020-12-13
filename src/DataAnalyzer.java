@@ -1,6 +1,6 @@
 public class DataAnalyzer {
 
-    public static int[][] analyzerOfDistribution(int[] inputArray, int bottomValue, int topValue) {
+    public static int[][] analyzerOfDistributionSorted(int[] inputArray, int bottomValue, int topValue) {
 
 
         /*
@@ -100,6 +100,80 @@ public class DataAnalyzer {
         return arrayForAnalysis;
 
     }
+
+
+
+
+    public static int[] analyzerOfDistribution(int[] inputArray, int bottomValue, int topValue) {
+
+
+        /*
+        Метод возвращает массив, индексы которого равны числам исследуемого массива с соответствующим смещением,
+        а значения по этим индексам соответственно равны количеству чисел в анализируемом массиве.
+        bottomValue - нижняя граница анализируемого диапазона, topValue - верхняя граница анализируемого диапазона.
+
+        Например: вызов метода analyzerOfDistribution (someArray, 5, 7), где массив someArray равен
+        {4, 5, 3, 7, 7, 5, 6, 7, 34, 12}, вернёт массив-распределение {2, 1, 3}, где индексу 0 соответствует число 5,
+        значение 2 означает, что 5 встретилась 2 раза, далее индексу 1 соответствует число 6, значение 1 означает,
+        что 6 встретилась 1 раз, далее индексу 2 соответствует число 3, значение 3 означает, что 7 встретилась 3 раза.
+        */
+
+        //--------------------------------------------------------abs of range
+
+        if (topValue < bottomValue) {
+
+            topValue ^= bottomValue;
+            bottomValue ^= topValue;
+            topValue ^= bottomValue;
+
+        }
+
+        //--------------------------------------------------------/abs of range
+
+
+        int inputArrayLength = inputArray.length;
+
+        int arrayForAnalysisLength = topValue - bottomValue + 1;
+
+        int[] arrayForAnalysis = new int[arrayForAnalysisLength];
+
+        int elementCount = 0;
+
+
+        //-----------------------------------------------------------------to fill the work array
+
+        int s = 0;
+        for (int k = bottomValue; k < topValue + 1; k++) {
+
+            arrayForAnalysis[s] = inputArray[k];
+            s++;
+
+        }
+
+        //-----------------------------------------------------------------/to fill the work array
+
+        for (int i = 0; i < arrayForAnalysisLength; i++) {
+
+            for (int j = 0; j < inputArrayLength; j++) {
+
+                //System.out.println(arrayForAnalysis[i][0] + "..." + inputArray[j]);
+
+                if (arrayForAnalysis[i] == inputArray[j]) elementCount++;
+
+            }
+
+            arrayForAnalysis[i] = arrayForAnalysis[i];
+            arrayForAnalysis[i] = elementCount;
+            elementCount = 0;
+
+        }
+
+
+        return arrayForAnalysis;
+
+    }
+
+
 
 
     static double dispersionOfDistributionByAbsValue(int[] inputArray) {
@@ -207,8 +281,8 @@ public class DataAnalyzer {
 
         System.out.print("*method: analyzerOfDistribution:");
         System.out.println("\n|element|count|");
-        int[][] arrayS = analyzerOfDistribution(testArray200, 1, 199);
-        jkPrintArray.jkPrintArrTwoInt(arrayS, 9);
+        int[] arrayS = analyzerOfDistribution(testArray200, 1, 199);
+        jkPrintArray.jkPrintArrOneInt(arrayS);
 
 
         //------------------------------------------------------------------------------------------
@@ -218,7 +292,8 @@ public class DataAnalyzer {
         int[] testArray = {14, 6, 13};
 
         System.out.println("*method: dispersionOfDistributionByAbsValue:");
-        System.out.println(dispersionOfDistributionByAbsValue(arrayS[1]));
+        System.out.println(dispersionOfDistributionByAbsValue(arrayS));
+        jkPrintArray.jkPrintArrOneInt(arrayS);
 
 
         //------------------------------------------------------------------------------------------
@@ -227,7 +302,7 @@ public class DataAnalyzer {
 
 
         System.out.println("*method: dispersionOfDistributionByQuadraticValue:");
-        System.out.println(dispersionOfDistributionByQuadraticValue(arrayS[1]));
+        System.out.println(dispersionOfDistributionByQuadraticValue(arrayS));
 
     }
     //----------------------------------------------------------------------------------------/checker

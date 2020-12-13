@@ -1,4 +1,4 @@
-public class DataAnalyzers {
+public class DataAnalyzersOfOverflaw {
 
     //--------------------------------------------------------------------------------------- arithmetic
 

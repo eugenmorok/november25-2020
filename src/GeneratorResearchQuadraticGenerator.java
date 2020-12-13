@@ -1,4 +1,4 @@
-public class GeneratorResearchLinearGenerator {
+public class GeneratorResearchQuadraticGenerator {
 
     public static void main(String[] args) {
 
@@ -16,9 +16,10 @@ public class GeneratorResearchLinearGenerator {
         int bottomValue = 0;
         int topValue = 299;
 
-        PseudoRandomNumberGenerators.linearGeneratorOfPseudorandomNumbers(someArray, k, b);
+        PseudoRandomNumberGenerators.quadraticGeneratorOfPseudorandomNumbers(someArray, k, b);
 
         workArray = DataAnalyzer.analyzerOfDistribution(someArray, bottomValue, topValue);
+
 
         disperseAbs = DataAnalyzer.dispersionOfDistributionByAbsValue(workArray);
 
@@ -29,7 +30,9 @@ public class GeneratorResearchLinearGenerator {
 
             for (b = 0; b < range; b++) {
 
-                PseudoRandomNumberGenerators.linearGeneratorOfPseudorandomNumbers(someArray, k, b);
+                //System.out.println(k + "..." + b);
+
+                PseudoRandomNumberGenerators.quadraticGeneratorOfPseudorandomNumbers(someArray, k, b);
 
                 workArray = DataAnalyzer.analyzerOfDistribution(someArray, bottomValue, topValue);
 
@@ -43,7 +46,6 @@ public class GeneratorResearchLinearGenerator {
                     disperseAbs = tempAbs;
                     resultKAbs = k;
                     resultBAbs = b;
-
                 }
 
                 if (tempQuad < disperseQuadratic) {
@@ -51,7 +53,6 @@ public class GeneratorResearchLinearGenerator {
                     disperseQuadratic = tempQuad;
                     resultBQuad = b;
                     resultKQuad = k;
-
                 }
 
                 /*
@@ -63,6 +64,8 @@ public class GeneratorResearchLinearGenerator {
 
             }
 
+            //System.out.println(k + "..." + b);
+
         }
 
 
@@ -73,8 +76,6 @@ public class GeneratorResearchLinearGenerator {
         System.out.printf("\nk = %d, b = %d for disperseAbs = %f; " +
                         "\nk = %d, b = %d for disperseQuadratic = %f",
                 resultKAbs, resultBAbs, disperseAbs, resultKQuad, resultBQuad, disperseQuadratic);
-        System.out.println();
-
 
 
     }

@@ -2,7 +2,7 @@ public class GeneratorResearchTimeGenerator {
 
     public static void main(String[] args) {
 
-        int[] someArray = new int [15];
+        int[] someArray = new int [150];
 
         PseudoRandomNumberGenerators.generatorOfPseudorandomNumbersTime(someArray);
 
@@ -14,10 +14,10 @@ public class GeneratorResearchTimeGenerator {
             jkPrintArray.jkPrintArrOneInt(someArray);
             System.out.println();
 
-            System.out.print("*method: analyzerOfDistribution:");
-            System.out.println("\n|element|count|");
-            int[][] arrayS = DataAnalyzer.analyzerOfDistribution(someArray, 1, 14);
-            jkPrintArray.jkPrintArrTwoInt(arrayS, 9);
+            System.out.print("*method: analyzerOfDistribution:\n");
+
+            int[] arrayS = DataAnalyzer.analyzerOfDistribution(someArray, 1, 140);
+            jkPrintArray.jkPrintArrOneInt(arrayS);
 
 
             //------------------------------------------------------------------------------------------
@@ -26,7 +26,7 @@ public class GeneratorResearchTimeGenerator {
 
 
             System.out.println("*method: dispersionOfDistributionByAbsValue:");
-            System.out.println(DataAnalyzer.dispersionOfDistributionByAbsValue(someArray));
+            System.out.println(DataAnalyzer.dispersionOfDistributionByAbsValue(arrayS));
 
 
             //------------------------------------------------------------------------------------------
@@ -35,7 +35,7 @@ public class GeneratorResearchTimeGenerator {
 
 
             System.out.println("*method: dispersionOfDistributionByQuadraticValue:");
-            System.out.println(DataAnalyzer.dispersionOfDistributionByQuadraticValue(someArray));
+            System.out.println(DataAnalyzer.dispersionOfDistributionByQuadraticValue(arrayS));
 
         }
         //----------------------------------------------------------------------------------------/checker
